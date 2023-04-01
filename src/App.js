@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Banner from './Components/Banner/Banner';
+import NavBar from './Components/NavBar/navBar';
+import RowPost from './Components/RowPost/RowPost';
+import {action_url,API_KEY,BASE_URL} from './credentials/Credentials'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <NavBar/>
+     <Banner/>
+     <RowPost url={`${BASE_URL}/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`} title='Netflix Origins'/>
+     <RowPost url={action_url} title='Action' isSmall={true}/>
     </div>
   );
 }
